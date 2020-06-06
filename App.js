@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.topbar}>
         <Text>Topbar</Text>
       </View>
@@ -32,6 +32,6 @@ export default function App() {
       <View style={styles.bottomNavigation}>
         <Text>Bottom Navigation</Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
