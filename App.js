@@ -7,17 +7,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   topbar: {
-    backgroundColor: 'orange',
+    backgroundColor: '#fff',
     height: 65,
     // Note: only works on Android
     marginTop: StatusBar.currentHeight,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginRight: 16,
+    marginLeft: 16,
   },
   content: {
     flex: 1,
     backgroundColor: 'green',
   },
   bottomNavigation: {
-    backgroundColor: 'blue',
+    backgroundColor: 'lightblue',
     height: 65,
   },
 });
@@ -26,7 +31,8 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.topbar}>
-        <Text>Topbar</Text>
+        <Text>Silicon Valley</Text>
+        <Text>Map Icon</Text>
       </View>
       <View style={styles.content}>
         <Text>Content</Text>
