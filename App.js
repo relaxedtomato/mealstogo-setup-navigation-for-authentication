@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -9,6 +9,8 @@ const styles = StyleSheet.create({
   topbar: {
     backgroundColor: 'orange',
     height: 65,
+    // Note: only works on Android
+    marginTop: StatusBar.currentHeight,
   },
   content: {
     flex: 1,
