@@ -1,5 +1,6 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import Map from './assets/icons/map.svg';
 
 const styles = StyleSheet.create({
   container: {
@@ -32,7 +33,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <View style={styles.topbar}>
         <Text>Silicon Valley</Text>
-        <Text>Map Icon</Text>
+        <Map width={32} height={32} />
       </View>
       <View style={styles.content}>
         <Text>Content</Text>
