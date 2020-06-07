@@ -1,5 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Home from './assets/icons/home.svg';
+import Search from './assets/icons/search.svg';
+import Profile from './assets/icons/profile.svg';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,9 +17,9 @@ const styles = StyleSheet.create({
 
 const BottomNavigation = () => (
   <View style={styles.container}>
-    <Text>Home</Text>
-    <Text>Search</Text>
-    <Text>Profile</Text>
+    <Home width={32} height={32} />
+    <Search width={32} height={32} />
+    <Profile width={32} height={32} />
   </View>
 );
 
