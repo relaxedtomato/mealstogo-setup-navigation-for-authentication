@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
 // import Map from './assets/icons/map.svg';
+import BottomNavigation from './BottomNavigation';
 import TopBar from './TopBar';
 
 const styles = StyleSheet.create({
@@ -24,7 +25,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'green',
   },
   bottomNavigation: {
-    backgroundColor: 'lightblue',
     height: 65,
   },
 });
@@ -39,7 +39,7 @@ export default function App() {
         <Text>Content</Text>
       </View>
       <View style={styles.bottomNavigation}>
-        <Text>Bottom Navigation</Text>
+        <BottomNavigation />
       </View>
     </SafeAreaView>
   );
