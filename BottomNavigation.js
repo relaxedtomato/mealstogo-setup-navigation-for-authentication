@@ -13,13 +13,26 @@ const styles = StyleSheet.create({
     marginRight: 16,
     marginLeft: 16,
   },
+  iconContainer: {
+    alignItems: 'center',
+  },
+  iconLabel: {
+    color: '#b0b0b0',
+  },
 });
+
+const Icon = ({ icon, label }) => (
+  <View style={styles.iconContainer}>
+    {icon}
+    <Text style={styles.iconLabel}>{label}</Text>
+  </View>
+);
 
 const BottomNavigation = () => (
   <View style={styles.container}>
-    <Home width={32} height={32} />
-    <Search width={32} height={32} />
-    <Profile width={32} height={32} />
+    <Icon icon={<Home width={32} height={32} />} label="Home" />
+    <Icon icon={<Search width={32} height={32} />} label="Search" />
+    <Icon icon={<Profile width={32} height={32} />} label="Profile" />
   </View>
 );
 
