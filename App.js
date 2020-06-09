@@ -1,6 +1,5 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
-// import Map from './assets/icons/map.svg';
 import BottomNavigation from './BottomNavigation';
 import TopBar from './TopBar';
 
@@ -14,11 +13,6 @@ const styles = StyleSheet.create({
     height: 65,
     // Note: only works on Android
     marginTop: StatusBar.currentHeight,
-    // flexDirection: 'row',
-    // justifyContent: 'space-between',
-    // alignItems: 'center',
-    // marginRight: 16,
-    // marginLeft: 16,
   },
   content: {
     flex: 1,
