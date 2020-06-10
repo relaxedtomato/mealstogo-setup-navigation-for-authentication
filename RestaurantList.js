@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, SectionList, StyleSheet, Text, View } from 'react-native';
+import PropTypes from 'prop-types';
 import RestaurantData from './RestaurantData';
 
 const DATA = [
@@ -45,10 +46,19 @@ const Item = ({ data }) => (
   <View style={styles.item}>
     <Image style={styles.image} source={data.image} />
     <Text style={styles.name}>{data.name}</Text>
-    <Text style={styles.cusine}>{data.cusine}</Text>
+    <Text style={styles.cuisine}>{data.cuisine}</Text>
     <Text style={styles.vicinity}>{data.vicinity}</Text>
   </View>
 );
+
+Item.propTypes = {
+  data: PropTypes.shape({
+    image: PropTypes.number,
+    name: PropTypes.string,
+    cuisine: PropTypes.string,
+    vicinity: PropTypes.string,
+  }).isRequired,
+};
 
 const RestaurantList = () => (
   <View style={styles.container}>

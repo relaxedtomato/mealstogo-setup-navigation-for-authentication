@@ -134,6 +134,84 @@ const RestaurantsData = {
       place_id: '10',
       vicinity: 'Silicon Valley',
     },
+    {
+      geometry: {
+        location: {
+          lat: 43.7345043,
+          lng: -79.5599967,
+        },
+      },
+      name: 'Lemongrass Thai Restaurant',
+      cuisine: 'Thai',
+      image: require('./assets/cuisine/thai/thai.jpg'),
+      place_id: '11',
+      vicinity: 'Silicon Valley',
+    },
+    {
+      geometry: {
+        location: {
+          lat: 43.7237634,
+          lng: -79.4893709,
+        },
+      },
+      name: 'Thai Express',
+      cuisine: 'Thai',
+      image: require('./assets/cuisine/thai/thai.jpg'),
+      place_id: '12',
+      vicinity: 'Silicon Valley',
+    },
+    {
+      geometry: {
+        location: {
+          lat: 43.6921197,
+          lng: -79.5324244,
+        },
+      },
+      name: 'Joyous Thai Phaze 2',
+      cuisine: 'Thai',
+      image: require('./assets/cuisine/thai/thai.jpg'),
+      place_id: '13',
+      vicinity: 'Silicon Valley',
+    },
+    {
+      geometry: {
+        location: {
+          lat: 43.7186545,
+          lng: -79.5075805,
+        },
+      },
+      name: 'Mi Pho Song Vu',
+      cuisine: 'Thai',
+      image: require('./assets/cuisine/thai/thai.jpg'),
+      place_id: '14',
+      vicinity: 'Silicon Valley',
+    },
+    {
+      geometry: {
+        location: {
+          lat: 43.6738418,
+          lng: -79.4698149,
+        },
+      },
+      name: 'Thai Express',
+      cuisine: 'Thai',
+      image: require('./assets/cuisine/thai/thai.jpg'),
+      place_id: '15',
+      vicinity: 'Silicon Valley',
+    },
+    {
+      geometry: {
+        location: {
+          lat: 43.6901517,
+          lng: -79.5759278,
+        },
+      },
+      name: 'Silver Chopsticks',
+      cuisine: 'Thai',
+      image: require('./assets/cuisine/thai/thai.jpg'),
+      place_id: '16',
+      vicinity: 'Silicon Valley',
+    },
   ],
 };
 
