@@ -10,16 +10,20 @@ import {
 import PropTypes from 'prop-types';
 import RestaurantData from './RestaurantData';
 
-const DATA = [
+const RESTAURANT_DATA = [
   {
     title: 'Favorites',
     data: [RestaurantData.results.slice(11, 16)], // [[r1, r2, r3]]
-    renderItem: ({ item }) => <FavRestaurant data={item} />,
+    renderItem: ({ item: restaurants }) => (
+      <FavRestaurant restaurants={restaurants} />
+    ),
   },
   {
     title: 'Close by',
     data: RestaurantData.results.slice(0, 10), // [r1, r2, r3]
-    renderItem: ({ item }) => <ClosebyRestaurant data={item} />,
+    renderItem: ({ item: restaurant }) => (
+      <ClosebyRestaurant restaurant={restaurant} />
+    ),
   },
 ];
 
@@ -28,7 +32,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 16,
   },
-  item: {
+  closebyContainer: {
     backgroundColor: '#f9f9f9',
     marginVertical: 8,
     padding: 10,
@@ -49,7 +53,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 12,
   },
-  image: {
+  closebyImage: {
     width: 305,
     height: 150,
   },
@@ -63,17 +67,17 @@ const styles = StyleSheet.create({
   },
 });
 
-const ClosebyRestaurant = ({ data }) => (
-  <View style={styles.item}>
-    <Image style={styles.image} source={data.image} />
-    <Text style={styles.name}>{data.name}</Text>
-    <Text style={styles.cuisine}>{data.cuisine}</Text>
-    <Text style={styles.vicinity}>{data.vicinity}</Text>
+const ClosebyRestaurant = ({ restaurant }) => (
+  <View style={styles.closebyContainer}>
+    <Image style={styles.closebyImage} source={restaurant.image} />
+    <Text style={styles.name}>{restaurant.name}</Text>
+    <Text style={styles.cuisine}>{restaurant.cuisine}</Text>
+    <Text style={styles.vicinity}>{restaurant.vicinity}</Text>
   </View>
 );
 
 ClosebyRestaurant.propTypes = {
-  data: PropTypes.shape({
+  restaurant: PropTypes.shape({
     image: PropTypes.number,
     name: PropTypes.string,
     cuisine: PropTypes.string,
@@ -81,12 +85,12 @@ ClosebyRestaurant.propTypes = {
   }).isRequired,
 };
 
-const FavRestaurant = ({ data }) => (
+const FavRestaurant = ({ restaurants }) => (
   <ScrollView horizontal>
-    {data.map(item => (
-      <View style={styles.favContainer}>
-        <Image source={item.image} style={styles.favImage} />
-        <Text style={styles.name}>{item.name}</Text>
+    {restaurants.map(restaurant => (
+      <View style={styles.favContainer} key={restaurant.place_id}>
+        <Image source={restaurant.image} style={styles.favImage} />
+        <Text style={styles.name}>{restaurant.name}</Text>
       </View>
     ))}
   </ScrollView>
@@ -95,8 +99,8 @@ const FavRestaurant = ({ data }) => (
 const RestaurantList = () => (
   <View style={styles.container}>
     <SectionList
-      sections={DATA}
-      keyExtractor={item => item.place_id}
+      sections={RESTAURANT_DATA}
+      keyExtractor={restaurant => restaurant.place_id}
       renderSectionHeader={({ section: { title } }) => (
         <Text style={styles.sectionHeader}>{title}</Text>
       )}
