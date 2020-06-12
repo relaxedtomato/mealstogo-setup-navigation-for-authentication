@@ -5,7 +5,7 @@ import RestaurantData from './RestaurantData';
 
 const DATA = [
   {
-    title: 'Closeby',
+    title: 'Close by',
     data: RestaurantData.results,
   },
 ];
