@@ -8,6 +8,8 @@ import {
   View,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import Swiper from 'react-native-swiper';
+
 import RestaurantData from './RestaurantData';
 
 const RESTAURANT_DATA = [
@@ -65,6 +67,12 @@ const styles = StyleSheet.create({
     width: 150,
     height: 100,
   },
+  swiper: {
+    height: 160,
+  },
+  slide: {
+    flexDirection: 'row',
+  },
 });
 
 const ClosebyRestaurant = ({ restaurant }) => (
@@ -86,14 +94,34 @@ ClosebyRestaurant.propTypes = {
 };
 
 const FavRestaurant = ({ restaurants }) => (
-  <ScrollView horizontal>
-    {restaurants.map(restaurant => (
+  <Swiper showsPagination={false} style={styles.swiper}>
+    {/* {restaurants.map(restaurant => (
       <View style={styles.favContainer} key={restaurant.place_id}>
         <Image source={restaurant.image} style={styles.favImage} />
         <Text style={styles.name}>{restaurant.name}</Text>
       </View>
-    ))}
-  </ScrollView>
+    ))} */}
+    <View style={styles.slide}>
+      <View style={styles.favContainer} key={restaurants[0].place_id}>
+        <Image source={restaurants[0].image} style={styles.favImage} />
+        <Text style={styles.name}>{restaurants[0].name}</Text>
+      </View>
+      <View style={styles.favContainer} key={restaurants[1].place_id}>
+        <Image source={restaurants[1].image} style={styles.favImage} />
+        <Text style={styles.name}>{restaurants[1].name}</Text>
+      </View>
+    </View>
+    <View style={styles.slide}>
+      <View style={styles.favContainer} key={restaurants[2].place_id}>
+        <Image source={restaurants[2].image} style={styles.favImage} />
+        <Text style={styles.name}>{restaurants[2].name}</Text>
+      </View>
+      <View style={styles.favContainer} key={restaurants[3].place_id}>
+        <Image source={restaurants[3].image} style={styles.favImage} />
+        <Text style={styles.name}>{restaurants[3].name}</Text>
+      </View>
+    </View>
+  </Swiper>
 );
 
 const RestaurantList = () => (
