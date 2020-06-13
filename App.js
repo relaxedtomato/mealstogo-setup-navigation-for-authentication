@@ -1,41 +1,6 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
-import BottomNavigation from './BottomNavigation';
-import TopBar from './TopBar';
-import RestaurantList from './RestaurantList';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  topbar: {
-    backgroundColor: '#fff',
-    height: 65,
-    // Note: only works on Android
-    marginTop: StatusBar.currentHeight,
-  },
-  content: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  bottomNavigation: {
-    height: 65,
-  },
-});
+import Home from './src/scenes/home';
 
 export default function App() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.topbar}>
-        <TopBar />
-      </View>
-      <View style={styles.content}>
-        <RestaurantList />
-      </View>
-      <View style={styles.bottomNavigation}>
-        <BottomNavigation />
-      </View>
-    </SafeAreaView>
-  );
+  return <Home />;
 }

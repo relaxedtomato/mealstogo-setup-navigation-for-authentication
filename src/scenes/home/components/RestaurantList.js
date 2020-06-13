@@ -3,7 +3,7 @@ import { Image, SectionList, StyleSheet, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 import Swiper from 'react-native-swiper';
 
-import RestaurantData from './RestaurantData';
+import RestaurantData from '../../../services/RestaurantData';
 
 const restaurantPropTypes = PropTypes.shape({
   image: PropTypes.number,
