@@ -93,36 +93,91 @@ ClosebyRestaurant.propTypes = {
   }).isRequired,
 };
 
-const FavRestaurant = ({ restaurants }) => (
-  <Swiper showsPagination={false} style={styles.swiper}>
-    {/* {restaurants.map(restaurant => (
-      <View style={styles.favContainer} key={restaurant.place_id}>
-        <Image source={restaurant.image} style={styles.favImage} />
-        <Text style={styles.name}>{restaurant.name}</Text>
-      </View>
-    ))} */}
-    <View style={styles.slide}>
-      <View style={styles.favContainer} key={restaurants[0].place_id}>
-        <Image source={restaurants[0].image} style={styles.favImage} />
-        <Text style={styles.name}>{restaurants[0].name}</Text>
-      </View>
-      <View style={styles.favContainer} key={restaurants[1].place_id}>
-        <Image source={restaurants[1].image} style={styles.favImage} />
-        <Text style={styles.name}>{restaurants[1].name}</Text>
-      </View>
-    </View>
-    <View style={styles.slide}>
-      <View style={styles.favContainer} key={restaurants[2].place_id}>
-        <Image source={restaurants[2].image} style={styles.favImage} />
-        <Text style={styles.name}>{restaurants[2].name}</Text>
-      </View>
-      <View style={styles.favContainer} key={restaurants[3].place_id}>
-        <Image source={restaurants[3].image} style={styles.favImage} />
-        <Text style={styles.name}>{restaurants[3].name}</Text>
-      </View>
-    </View>
-  </Swiper>
-);
+const FavRestaurant = ({ restaurants }) => {
+  let gridSection = [];
+
+  const favDataGrid = restaurants.reduce(
+    (allRestaurants, currentRestaurant, index) => {
+      if (gridSection.length === 2) {
+        allRestaurants.push(gridSection);
+        gridSection = [];
+      }
+
+      const isLastItem = restaurants.length - 1 === index;
+
+      if (isLastItem) {
+        if (gridSection.length === 1) {
+          gridSection.push(currentRestaurant);
+          allRestaurants.push(gridSection);
+        } else {
+          allRestaurants.push([currentRestaurant]);
+        }
+      } else {
+        gridSection.push(currentRestaurant);
+      }
+
+      return allRestaurants;
+    },
+    []
+  );
+
+  return (
+    <Swiper showsPagination={false} style={styles.swiper}>
+      {favDataGrid.map(section => {
+        const [firstRestaurant, secondRestaurant] = section;
+
+        return (
+          <View style={styles.slide} key={firstRestaurant.place_id}>
+            <View style={styles.favContainer} key={firstRestaurant.place_id}>
+              <Image source={firstRestaurant.image} style={styles.favImage} />
+              <Text style={styles.name}>{firstRestaurant.name}</Text>
+            </View>
+            {secondRestaurant && (
+              <View style={styles.favContainer} key={secondRestaurant.place_id}>
+                <Image
+                  source={secondRestaurant.image}
+                  style={styles.favImage}
+                />
+                <Text style={styles.name}>{secondRestaurant.name}</Text>
+              </View>
+            )}
+          </View>
+        );
+      })}
+    </Swiper>
+  );
+};
+
+// (
+//   <Swiper showsPagination={false} style={styles.swiper}>
+//     {/* {restaurants.map(restaurant => (
+//       <View style={styles.favContainer} key={restaurant.place_id}>
+//         <Image source={restaurant.image} style={styles.favImage} />
+//         <Text style={styles.name}>{restaurant.name}</Text>
+//       </View>
+//     ))} */}
+//     <View style={styles.slide}>
+//       <View style={styles.favContainer} key={restaurants[0].place_id}>
+//         <Image source={restaurants[0].image} style={styles.favImage} />
+//         <Text style={styles.name}>{restaurants[0].name}</Text>
+//       </View>
+//       <View style={styles.favContainer} key={restaurants[1].place_id}>
+//         <Image source={restaurants[1].image} style={styles.favImage} />
+//         <Text style={styles.name}>{restaurants[1].name}</Text>
+//       </View>
+//     </View>
+//     <View style={styles.slide}>
+//       <View style={styles.favContainer} key={restaurants[2].place_id}>
+//         <Image source={restaurants[2].image} style={styles.favImage} />
+//         <Text style={styles.name}>{restaurants[2].name}</Text>
+//       </View>
+//       <View style={styles.favContainer} key={restaurants[3].place_id}>
+//         <Image source={restaurants[3].image} style={styles.favImage} />
+//         <Text style={styles.name}>{restaurants[3].name}</Text>
+//       </View>
+//     </View>
+//   </Swiper>
+// );
 
 const RestaurantList = () => (
   <View style={styles.container}>
