@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
-import Map from '../../assets/icons/map';
+import Map from '~/assets/icons/map';
 
 const styles = StyleSheet.create({
   container: {

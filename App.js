@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './src/scenes/home';
+import Home from '~/scenes/home';
 
 export default function App() {
   return <Home />;

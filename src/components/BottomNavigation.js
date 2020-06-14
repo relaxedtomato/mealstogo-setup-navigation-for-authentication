@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
-import Home from '../../assets/icons/home.svg';
-import Search from '../../assets/icons/search.svg';
-import Profile from '../../assets/icons/profile.svg';
+import Home from '~/assets/icons/home.svg';
+import Search from '~/assets/icons/search.svg';
+import Profile from '~/assets/icons/profile.svg';
 
 const styles = StyleSheet.create({
   container: {

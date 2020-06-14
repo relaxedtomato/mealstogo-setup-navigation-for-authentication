@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
-import BottomNavigation from '../../components/BottomNavigation';
-import TopBar from '../../components/TopBar';
+import BottomNavigation from '~/components/BottomNavigation';
+import TopBar from '~/components/TopBar';
 import RestaurantList from './components/RestaurantList';
 
 const styles = StyleSheet.create({
