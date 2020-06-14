@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 import Map from '~/assets/icons/map';
+import { Spacing } from '~/styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,8 +9,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginRight: 16,
-    marginLeft: 16,
+    marginRight: Spacing.medium,
+    marginLeft: Spacing.medium,
   },
 });
 
