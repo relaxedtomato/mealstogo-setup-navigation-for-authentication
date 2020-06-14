@@ -4,23 +4,24 @@ import Swiper from 'react-native-swiper';
 import PropTypes from 'prop-types';
 
 import restaurantPropTypes from './restaurantPropTypes';
+import { Colors, Spacing, Typography } from '~/styles';
 
 const styles = StyleSheet.create({
   cuisine: {
-    marginTop: 8,
-    fontSize: 12,
+    marginTop: Spacing.small,
+    fontSize: Typography.baseFontSize,
   },
   container: {
-    padding: 8,
-    backgroundColor: '#f9f9f9',
+    padding: Spacing.small,
+    backgroundColor: Colors.lightGray,
   },
   image: {
     width: 150,
     height: 100,
   },
   name: {
-    marginTop: 8,
-    fontSize: 16,
+    marginTop: Spacing.small,
+    fontSize: Typography.largeFontSize,
   },
   swiper: {
     height: 160,

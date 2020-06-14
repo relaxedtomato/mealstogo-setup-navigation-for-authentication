@@ -4,23 +4,22 @@ import BottomNavigation from '~/components/BottomNavigation';
 import TopBar from '~/components/TopBar';
 import RestaurantList from './components/RestaurantList';
 
+const HEIGHT = 65;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
   },
   topbar: {
-    backgroundColor: '#fff',
-    height: 65,
+    height: HEIGHT,
     // Note: only works on Android
     marginTop: StatusBar.currentHeight,
   },
   content: {
     flex: 1,
-    backgroundColor: '#fff',
   },
   bottomNavigation: {
-    height: 65,
+    height: HEIGHT,
   },
 });
 

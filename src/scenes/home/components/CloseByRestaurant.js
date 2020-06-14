@@ -2,24 +2,25 @@ import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
 import restaurantPropTypes from './restaurantPropTypes';
+import { Colors, Spacing, Typography } from '~/styles';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f9f9f9',
-    marginVertical: 8,
+    backgroundColor: Colors.lightGray,
+    marginVertical: Spacing.small,
     padding: 10,
   },
   name: {
-    marginTop: 16,
-    fontSize: 16,
+    marginTop: Spacing.medium,
+    fontSize: Typography.largeFontSize,
   },
   cuisine: {
-    marginTop: 8,
-    fontSize: 12,
+    marginTop: Spacing.small,
+    fontSize: Typography.baseFontSize,
   },
   vicinity: {
-    marginTop: 8,
-    fontSize: 12,
+    marginTop: Spacing.small,
+    fontSize: Typography.baseFontSize,
   },
   image: {
     width: 305,

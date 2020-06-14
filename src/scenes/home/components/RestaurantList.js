@@ -4,6 +4,7 @@ import { SectionList, StyleSheet, Text, View } from 'react-native';
 import CloseByRestaurant from './CloseByRestaurant';
 import FavRestaurants from './FavRestaurants';
 import RestaurantData from '~/services/RestaurantData';
+import { Spacing, Typography } from '~/styles';
 
 const RESTAURANT_DATA = [
   {
@@ -21,10 +22,10 @@ const RESTAURANT_DATA = [
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: 16,
+    marginHorizontal: Spacing.medium,
   },
   sectionHeader: {
-    fontSize: 16,
+    fontSize: Typography.largeFontSize,
     fontWeight: '900',
   },
 });

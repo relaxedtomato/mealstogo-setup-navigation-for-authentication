@@ -1,9 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
+
 import Home from '~/assets/icons/home.svg';
 import Search from '~/assets/icons/search.svg';
 import Profile from '~/assets/icons/profile.svg';
+import { Colors, Spacing, Typography } from '~/styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,14 +13,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginRight: 16,
-    marginLeft: 16,
+    marginRight: Spacing.medium,
+    marginLeft: Spacing.medium,
   },
   iconContainer: {
     alignItems: 'center',
   },
   iconLabel: {
-    color: '#b0b0b0',
+    color: Colors.mediumGray,
+    fontSize: Typography.baseFontSize,
   },
 });
 
