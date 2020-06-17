@@ -1,5 +1,13 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { Image, SectionList, StyleSheet, Text, View } from 'react-native';
+import RestaurantData from './RestaurantData';
+
+const DATA = [
+  {
+    title: 'Closeby',
+    data: RestaurantData.results,
+  },
+];
 
 const styles = StyleSheet.create({
   container: {
@@ -32,3 +40,27 @@ const styles = StyleSheet.create({
     height: 150,
   },
 });
+
+const Item = ({ data }) => (
+  <View style={styles.item}>
+    <Image style={styles.image} source={data.image} />
+    <Text style={styles.name}>{data.name}</Text>
+    <Text style={styles.cusine}>{data.cusine}</Text>
+    <Text style={styles.vicinity}>{data.vicinity}</Text>
+  </View>
+);
+
+const RestaurantList = () => (
+  <View style={styles.container}>
+    <SectionList
+      sections={DATA}
+      keyExtractor={item => item.place_id}
+      renderItem={({ item }) => <Item data={item} />}
+      renderSectionHeader={({ section: { title } }) => (
+        <Text style={styles.sectionHeader}>{title}</Text>
+      )}
+    />
+  </View>
+);
+
+export default RestaurantList;

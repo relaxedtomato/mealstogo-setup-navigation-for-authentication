@@ -2,6 +2,7 @@ import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import BottomNavigation from './BottomNavigation';
 import TopBar from './TopBar';
+import RestaurantList from './RestaurantList';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    backgroundColor: 'green',
+    backgroundColor: '#fff',
   },
   bottomNavigation: {
     height: 65,
@@ -30,7 +31,7 @@ export default function App() {
         <TopBar />
       </View>
       <View style={styles.content}>
-        <Text>Content</Text>
+        <RestaurantList />
       </View>
       <View style={styles.bottomNavigation}>
         <BottomNavigation />
