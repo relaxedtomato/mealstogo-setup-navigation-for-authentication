@@ -6,9 +6,11 @@ import { Colors, Spacing, Typography } from '~/styles';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.lightGray,
+    backgroundColor: Colors.white,
     marginVertical: Spacing.small,
     padding: 10,
+    borderRadius: 10,
+    elevation: 2,
   },
   name: {
     marginTop: Spacing.medium,
@@ -23,8 +25,9 @@ const styles = StyleSheet.create({
     fontSize: Typography.baseFontSize,
   },
   image: {
-    width: 305,
+    width: '100%',
     height: 150,
+    borderRadius: 10,
   },
 });
 

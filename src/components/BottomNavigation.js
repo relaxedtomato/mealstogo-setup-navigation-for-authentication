@@ -13,8 +13,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginRight: Spacing.medium,
-    marginLeft: Spacing.medium,
+    paddingRight: Spacing.medium,
+    paddingLeft: Spacing.medium,
+    borderTopWidth: 2,
+    borderTopColor: Colors.lightGray,
   },
   iconContainer: {
     alignItems: 'center',

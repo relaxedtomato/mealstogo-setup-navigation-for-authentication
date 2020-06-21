@@ -3,6 +3,7 @@ import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
 import BottomNavigation from '~/components/BottomNavigation';
 import TopBar from '~/components/TopBar';
 import RestaurantList from './components/RestaurantList';
+import { Colors } from '~/styles';
 
 const HEIGHT = 65;
 
@@ -17,6 +18,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    backgroundColor: Colors.lightGray,
   },
   bottomNavigation: {
     height: HEIGHT,

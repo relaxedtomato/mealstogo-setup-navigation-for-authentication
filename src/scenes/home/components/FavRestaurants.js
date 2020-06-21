@@ -12,16 +12,20 @@ const styles = StyleSheet.create({
     fontSize: Typography.baseFontSize,
   },
   container: {
-    padding: Spacing.small,
-    backgroundColor: Colors.lightGray,
+    margin: Spacing.xsmall,
+    backgroundColor: Colors.white,
+    borderRadius: 10,
+    elevation: 2,
   },
   image: {
     width: 150,
     height: 100,
+    margin: Spacing.small,
+    borderRadius: 10,
   },
   name: {
-    marginTop: Spacing.small,
-    fontSize: Typography.largeFontSize,
+    margin: Spacing.small,
+    fontSize: Typography.baseFontSize,
   },
   swiper: {
     height: 160,

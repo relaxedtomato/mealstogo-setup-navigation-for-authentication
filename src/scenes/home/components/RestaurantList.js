@@ -38,6 +38,8 @@ const RestaurantList = () => (
       renderSectionHeader={({ section: { title } }) => (
         <Text style={styles.sectionHeader}>{title}</Text>
       )}
+      stickySectionHeadersEnabled={false}
+      showsVerticalScrollIndicator={false}
     />
   </View>
 );
