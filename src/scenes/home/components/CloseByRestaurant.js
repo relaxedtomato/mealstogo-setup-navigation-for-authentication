@@ -13,16 +13,18 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   name: {
+    ...Typography.bodyText,
     marginTop: Spacing.medium,
-    fontSize: Typography.largeFontSize,
+    fontFamily: 'lora-bold',
   },
   cuisine: {
+    ...Typography.bodyText,
     marginTop: Spacing.small,
-    fontSize: Typography.baseFontSize,
+    fontFamily: 'lora-italic',
   },
   vicinity: {
+    ...Typography.bodyText,
     marginTop: Spacing.small,
-    fontSize: Typography.baseFontSize,
   },
   image: {
     width: '100%',

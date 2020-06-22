@@ -22,8 +22,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconLabel: {
+    ...Typography.bodyText,
     color: Colors.mediumGray,
-    fontSize: Typography.baseFontSize,
+    fontFamily: 'sanchez-regular',
   },
 });
 

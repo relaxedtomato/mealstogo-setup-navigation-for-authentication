@@ -24,8 +24,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   name: {
+    ...Typography.bodyText,
     margin: Spacing.small,
-    fontSize: Typography.baseFontSize,
+    fontFamily: 'lora-bold',
   },
   swiper: {
     height: 160,

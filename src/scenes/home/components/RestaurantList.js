@@ -25,8 +25,7 @@ const styles = StyleSheet.create({
     marginHorizontal: Spacing.medium,
   },
   sectionHeader: {
-    fontSize: Typography.largeFontSize,
-    fontWeight: '900',
+    ...Typography.sectionHeader,
   },
 });
 
