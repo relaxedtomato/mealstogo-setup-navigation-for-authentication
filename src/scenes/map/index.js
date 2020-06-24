@@ -1,6 +1,10 @@
 import React from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
+
+import RestaurantData from '~/services/RestaurantData';
+import MapMarker from '~/assets/icons/map-marker.svg';
+import { Colors } from '~/styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,10 +25,24 @@ const region = {
   longitudeDelta: 0.0922 * ASPECT_RATIO,
 };
 
-const Map = () => (
-  <View style={styles.container}>
-    <MapView initialRegion={region} style={styles.mapStyle} />
-  </View>
-);
+const Map = () => {
+  const markers = RestaurantData.results.map(({ geometry }) => ({
+    coordinate: {
+      latitude: geometry.location.lat,
+      longitude: geometry.location.lng,
+    },
+  }));
+  return (
+    <View style={styles.container}>
+      <MapView initialRegion={region} style={styles.mapStyle}>
+        {markers.map(({ coordinate }) => (
+          <Marker coordinate={coordinate}>
+            <MapMarker width={32} height={32} fill={Colors.lightBlue} />
+          </Marker>
+        ))}
+      </MapView>
+    </View>
+  );
+};
 
 export default Map;
