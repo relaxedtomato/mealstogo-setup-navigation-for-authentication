@@ -4,8 +4,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.0912873,
-          lng: -79.1231231,
+          lat: 37.771982,
+          lng: -122.421123,
         },
       },
       name: 'Tacontento Mexican Foods',
@@ -17,8 +17,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.0912873,
-          lng: -79.1231231,
+          lat: 37.771901,
+          lng: -122.531111,
         },
       },
       name: 'El Takito',
@@ -33,8 +33,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.0912873,
-          lng: -79.1231231,
+          lat: 37.7883899,
+          lng: -122.435222,
         },
       },
       name: "Yo Amo Tacos Bar 'n Grill",
@@ -46,8 +46,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.09128730000001,
-          lng: -79.1231231,
+          lat: 37.773887,
+          lng: -122.481892,
         },
       },
       name: "Annie's Grill, Toronto",
@@ -59,8 +59,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.0912873,
-          lng: -79.1231231,
+          lat: 37.776789,
+          lng: -122.433663,
         },
       },
       name: 'Comal y Canela',
@@ -72,8 +72,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.0912873,
-          lng: -79.1231231,
+          lat: 37.774901,
+          lng: -122.421325,
         },
       },
       name: 'Cali Mexican Grill',
@@ -85,8 +85,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.0912873,
-          lng: -79.1231231,
+          lat: 37.173805,
+          lng: -122.401455,
         },
       },
       name: 'Chipotle Mexican Grill',
@@ -98,8 +98,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.0912873,
-          lng: -79.1231231,
+          lat: 37.78385,
+          lng: -122.491225,
         },
       },
       name: 'Get & Go Burrito',
@@ -111,8 +111,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.0912873,
-          lng: -79.1231231,
+          lat: 37.75375,
+          lng: -122.43176,
         },
       },
       name: "Amigo's Latin Flavor",
@@ -124,8 +124,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.0912873,
-          lng: -79.1231231,
+          lat: 37.775925,
+          lng: -122.411378,
         },
       },
       name: 'Mexican Hot Sauce Inc.',
@@ -137,8 +137,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.7345043,
-          lng: -79.5599967,
+          lat: 37.771995,
+          lng: -122.432563,
         },
       },
       name: 'Lemongrass Thai Restaurant',
@@ -150,8 +150,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.7237634,
-          lng: -79.4893709,
+          lat: 37.763825,
+          lng: -122.433158,
         },
       },
       name: 'Thai Express',
@@ -163,8 +163,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.6921197,
-          lng: -79.5324244,
+          lat: 37.713855,
+          lng: -122.461125,
         },
       },
       name: 'Joyous Thai Phaze 2',
@@ -176,8 +176,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.7186545,
-          lng: -79.5075805,
+          lat: 37.723875,
+          lng: -122.43945,
         },
       },
       name: 'Mi Pho Song Vu',
@@ -189,8 +189,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.6738418,
-          lng: -79.4698149,
+          lat: 37.774751,
+          lng: -122.831335,
         },
       },
       name: 'Thai Express',
@@ -202,8 +202,8 @@ const RestaurantsData = {
     {
       geometry: {
         location: {
-          lat: 43.6901517,
-          lng: -79.5759278,
+          lat: 37.733689,
+          lng: -122.441201,
         },
       },
       name: 'Silver Chopsticks',

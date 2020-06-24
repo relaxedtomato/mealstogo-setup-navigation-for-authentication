@@ -3,6 +3,7 @@ import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
 import BottomNavigation from '~/components/BottomNavigation';
 import TopBar from '~/components/TopBar';
 import RestaurantList from './components/RestaurantList';
+import RestaurantMap from '~/scenes/map';
 import { Colors } from '~/styles';
 
 const HEIGHT = 65;
@@ -32,7 +33,7 @@ export default function Home() {
         <TopBar />
       </View>
       <View style={styles.content}>
-        <RestaurantList />
+        <RestaurantMap />
       </View>
       <View style={styles.bottomNavigation}>
         <BottomNavigation />
