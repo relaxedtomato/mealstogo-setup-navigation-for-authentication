@@ -4,14 +4,25 @@ import MapView, { Marker } from 'react-native-maps';
 
 import RestaurantData from '~/services/RestaurantData';
 import MapMarker from '~/assets/icons/map-marker.svg';
-import { Colors } from '~/styles';
+import { Colors, Spacing } from '~/styles';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
   },
   mapStyle: {
     ...StyleSheet.absoluteFillObject,
+  },
+  restaurantContainer: {
+    backgroundColor: Colors.lightGray,
+    bottom: Spacing.xsmall,
+    height: '20%',
+    position: 'absolute',
+    width: '95%',
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    elevation: 2,
   },
 });
 
@@ -24,6 +35,8 @@ const region = {
   latitudeDelta: 0.0922,
   longitudeDelta: 0.0922 * ASPECT_RATIO,
 };
+
+const RestaurantSelected = () => <View style={styles.restaurantContainer} />;
 
 class Map extends React.Component {
   constructor() {
@@ -66,7 +79,7 @@ class Map extends React.Component {
   }
 
   render() {
-    const { markers } = this.state;
+    const { activeMarker, markers } = this.state;
     return (
       <View style={styles.container}>
         <MapView initialRegion={region} style={styles.mapStyle}>
@@ -82,6 +95,9 @@ class Map extends React.Component {
             </Marker>
           ))}
         </MapView>
+        {activeMarker.placeId ? (
+          <RestaurantSelected restaurant={activeMarker} />
+        ) : null}
       </View>
     );
   }
