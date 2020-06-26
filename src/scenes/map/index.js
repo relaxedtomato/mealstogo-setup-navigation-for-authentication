@@ -36,7 +36,9 @@ const region = {
   longitudeDelta: 0.0922 * ASPECT_RATIO,
 };
 
-const RestaurantSelected = () => <View style={styles.restaurantContainer} />;
+const RestaurantSelected = ({ restaurant }) => (
+  <View style={styles.restaurantContainer}>{/* Add restaurant details */}</View>
+);
 
 class Map extends React.Component {
   constructor() {
@@ -44,13 +46,17 @@ class Map extends React.Component {
     this.state = {
       activeMarker: {},
       markers: RestaurantData.results.map(
-        ({ geometry, place_id: placeId }) => ({
+        ({ geometry, place_id: placeId, name, cuisine, image, vicinity }) => ({
           coordinate: {
             latitude: geometry.location.lat,
             longitude: geometry.location.lng,
           },
           color: Colors.lightBlue,
           placeId,
+          name,
+          cuisine,
+          image,
+          vicinity,
         })
       ),
     };
