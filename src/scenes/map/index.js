@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
 import RestaurantData from '~/services/RestaurantData';
@@ -25,24 +25,65 @@ const region = {
   longitudeDelta: 0.0922 * ASPECT_RATIO,
 };
 
-const Map = () => {
-  const markers = RestaurantData.results.map(({ geometry }) => ({
-    coordinate: {
-      latitude: geometry.location.lat,
-      longitude: geometry.location.lng,
-    },
-  }));
-  return (
-    <View style={styles.container}>
-      <MapView initialRegion={region} style={styles.mapStyle}>
-        {markers.map(({ coordinate }) => (
-          <Marker coordinate={coordinate}>
-            <MapMarker width={32} height={32} fill={Colors.lightBlue} />
-          </Marker>
-        ))}
-      </MapView>
-    </View>
-  );
-};
+class Map extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      activeMarker: {},
+      markers: RestaurantData.results.map(
+        ({ geometry, place_id: placeId }) => ({
+          coordinate: {
+            latitude: geometry.location.lat,
+            longitude: geometry.location.lng,
+          },
+          color: Colors.lightBlue,
+          placeId,
+        })
+      ),
+    };
+  }
+
+  onMapPress(pressedMarker) {
+    const { activeMarker, markers } = this.state;
+
+    if (activeMarker.placeId) {
+      const prevMarkerIndex = markers.findIndex(
+        ({ placeId }) => activeMarker.placeId === placeId
+      );
+      markers[prevMarkerIndex].color = Colors.lightBlue;
+    }
+
+    const markerIndex = markers.findIndex(
+      ({ placeId }) => placeId === pressedMarker.placeId
+    );
+    markers[markerIndex].color = Colors.darkBlue;
+
+    this.setState({
+      markers,
+      activeMarker: pressedMarker,
+    });
+  }
+
+  render() {
+    const { markers } = this.state;
+    return (
+      <View style={styles.container}>
+        <MapView initialRegion={region} style={styles.mapStyle}>
+          {markers.map(marker => (
+            <Marker
+              coordinate={marker.coordinate}
+              key={marker.placeId}
+              onPress={() => this.onMapPress(marker)}
+            >
+              {/* <TouchableOpacity onPress={() => this.onMapPress(marker)}> */}
+              <MapMarker width={32} height={32} fill={marker.color} />
+              {/* </TouchableOpacity> */}
+            </Marker>
+          ))}
+        </MapView>
+      </View>
+    );
+  }
+}
 
 export default Map;
