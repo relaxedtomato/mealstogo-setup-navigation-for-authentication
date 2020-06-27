@@ -1,6 +1,13 @@
 import React from 'react';
 import * as Font from 'expo-font';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import Home from '~/scenes/home';
+import Search from '~/scenes/search';
+import Profile from '~/scenes/profile';
+
+const Tab = createBottomTabNavigator();
 
 export default class App extends React.Component {
   constructor() {
@@ -26,6 +33,14 @@ export default class App extends React.Component {
 
   render() {
     const { fontLoaded } = this.state;
-    return fontLoaded ? <Home /> : null;
+    return fontLoaded ? (
+      <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen name="Home" component={Home} />
+          <Tab.Screen name="Profile" component={Profile} />
+          <Tab.Screen name="Search" component={Search} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    ) : null;
   }
 }
