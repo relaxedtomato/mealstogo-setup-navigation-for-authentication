@@ -6,6 +6,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '~/scenes/home';
 import Search from '~/scenes/search';
 import Profile from '~/scenes/profile';
+import HomeIcon from '~/assets/icons/home.svg';
+import SearchIcon from '~/assets/icons/search.svg';
+import ProfileIcon from '~/assets/icons/profile.svg';
+import { Colors } from '~/styles';
 
 const Tab = createBottomTabNavigator();
 
@@ -35,10 +39,36 @@ export default class App extends React.Component {
     const { fontLoaded } = this.state;
     return fontLoaded ? (
       <NavigationContainer>
-        <Tab.Navigator>
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ color }) => {
+              const { name } = route;
+              let icon;
+
+              switch (name) {
+                case 'Home':
+                  icon = <HomeIcon width={32} height={32} fill={color} />;
+                  break;
+                case 'Search':
+                  icon = <SearchIcon width={32} height={32} fill={color} />;
+                  break;
+                case 'Profile':
+                  icon = <ProfileIcon width={32} height={32} fill={color} />;
+                  break;
+                default:
+              }
+              return icon;
+            },
+          })}
+          tabBarOptions={{
+            showLabel: false,
+            activeTintColor: Colors.lightBlue,
+            inactiveTintColor: Colors.mediumGray,
+          }}
+        >
           <Tab.Screen name="Home" component={Home} />
-          <Tab.Screen name="Profile" component={Profile} />
           <Tab.Screen name="Search" component={Search} />
+          <Tab.Screen name="Profile" component={Profile} />
         </Tab.Navigator>
       </NavigationContainer>
     ) : null;
