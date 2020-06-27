@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 import Map from '~/assets/icons/map';
 import { Colors, Spacing, Typography } from '~/styles';
+import ICON_DIMENSIONS from '~/utils/constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
 const TopBar = () => (
   <View style={styles.container}>
     <Text style={styles.location}>Silicon Valley</Text>
-    <Map width={32} height={32} />
+    <Map width={ICON_DIMENSIONS.width} height={ICON_DIMENSIONS.height} />
   </View>
 );
 

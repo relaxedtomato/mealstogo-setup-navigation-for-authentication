@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
-import BottomNavigation from '~/components/BottomNavigation';
 import TopBar from '~/components/TopBar';
 import RestaurantList from './components/RestaurantList';
 import RestaurantMap from '~/scenes/map';
 import { Colors } from '~/styles';
 
-const HEIGHT = 65;
+const HEIGHT = 55;
 
 const styles = StyleSheet.create({
   container: {
@@ -21,9 +20,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.lightGray,
   },
-  bottomNavigation: {
-    height: HEIGHT,
-  },
 });
 
 export default function Home() {
@@ -34,9 +30,6 @@ export default function Home() {
       </View>
       <View style={styles.content}>
         <RestaurantMap />
-      </View>
-      <View style={styles.bottomNavigation}>
-        <BottomNavigation />
       </View>
     </SafeAreaView>
   );

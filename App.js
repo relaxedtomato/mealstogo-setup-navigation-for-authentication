@@ -10,6 +10,7 @@ import HomeIcon from '~/assets/icons/home.svg';
 import SearchIcon from '~/assets/icons/search.svg';
 import ProfileIcon from '~/assets/icons/profile.svg';
 import { Colors } from '~/styles';
+import ICON_DIMENSIONS from '~/utils/constants';
 
 const Tab = createBottomTabNavigator();
 
@@ -42,18 +43,25 @@ export default class App extends React.Component {
         <Tab.Navigator
           screenOptions={({ route }) => ({
             tabBarIcon: ({ color }) => {
+              const { width, height } = ICON_DIMENSIONS;
               const { name } = route;
               let icon;
 
               switch (name) {
                 case 'Home':
-                  icon = <HomeIcon width={32} height={32} fill={color} />;
+                  icon = (
+                    <HomeIcon width={width} height={height} fill={color} />
+                  );
                   break;
                 case 'Search':
-                  icon = <SearchIcon width={32} height={32} fill={color} />;
+                  icon = (
+                    <SearchIcon width={width} height={height} fill={color} />
+                  );
                   break;
                 case 'Profile':
-                  icon = <ProfileIcon width={32} height={32} fill={color} />;
+                  icon = (
+                    <ProfileIcon width={width} height={height} fill={color} />
+                  );
                   break;
                 default:
               }
