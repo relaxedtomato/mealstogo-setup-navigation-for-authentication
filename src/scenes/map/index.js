@@ -45,21 +45,22 @@ class Map extends React.Component {
 
   onMapPress(pressedMarker) {
     const { activeMarker, markers } = this.state;
+    const updatedMarkers = [...markers];
 
     if (activeMarker.placeId) {
       const prevMarkerIndex = markers.findIndex(
         ({ placeId }) => activeMarker.placeId === placeId
       );
-      markers[prevMarkerIndex].color = Colors.lightBlue;
+      updatedMarkers[prevMarkerIndex].color = Colors.lightBlue;
     }
 
     const markerIndex = markers.findIndex(
       ({ placeId }) => placeId === pressedMarker.placeId
     );
-    markers[markerIndex].color = Colors.darkBlue;
+    updatedMarkers[markerIndex].color = Colors.darkBlue;
 
     this.setState({
-      markers,
+      markers: updatedMarkers,
       activeMarker: pressedMarker,
     });
   }
