@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
-import restaurantPropTypes from './restaurantPropTypes';
+import restaurantPropTypes from '~/types';
 import { Colors, Spacing, Typography } from '~/styles';
 
 const styles = StyleSheet.create({

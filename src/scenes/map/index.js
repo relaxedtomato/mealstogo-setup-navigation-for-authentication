@@ -5,6 +5,7 @@ import MapView, { Marker } from 'react-native-maps';
 import RestaurantData from '~/services/RestaurantData';
 import MapMarker from '~/assets/icons/map-marker.svg';
 import { Colors, Spacing } from '~/styles';
+import RestaurantSelected from './components/RestaurantSelected';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,16 +14,6 @@ const styles = StyleSheet.create({
   },
   mapStyle: {
     ...StyleSheet.absoluteFillObject,
-  },
-  restaurantContainer: {
-    backgroundColor: Colors.lightGray,
-    bottom: Spacing.xsmall,
-    height: '20%',
-    position: 'absolute',
-    width: '95%',
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    elevation: 2,
   },
 });
 
@@ -35,10 +26,6 @@ const region = {
   latitudeDelta: 0.0922,
   longitudeDelta: 0.0922 * ASPECT_RATIO,
 };
-
-const RestaurantSelected = ({ restaurant }) => (
-  <View style={styles.restaurantContainer}>{/* Add restaurant details */}</View>
-);
 
 class Map extends React.Component {
   constructor() {

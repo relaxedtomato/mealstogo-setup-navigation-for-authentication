@@ -13,6 +13,7 @@ module.exports = function(api) {
             '~/scenes': './src/scenes',
             '~/services': './src/services',
             '~/styles': './src/styles',
+            '~/types': './src/types',
             '~/utils': './src/utils',
           },
         },
