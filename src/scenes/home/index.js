@@ -21,11 +21,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Home() {
+export default function Home({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.topbar}>
-        <TopBar />
+        <TopBar openMap={() => navigation.navigate('MapModal')} />
       </View>
       <View style={styles.content}>
         <RestaurantList />

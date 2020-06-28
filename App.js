@@ -78,7 +78,7 @@ export default class App extends React.Component {
     const { fontLoaded } = this.state;
     return fontLoaded ? (
       <NavigationContainer>
-        <RootStack.Navigator initialRouteName="MapModal" headerMode="none">
+        <RootStack.Navigator headerMode="none">
           <RootStack.Screen name="App" component={AppStack} />
           <RootStack.Screen name="MapModal" component={Map} />
         </RootStack.Navigator>

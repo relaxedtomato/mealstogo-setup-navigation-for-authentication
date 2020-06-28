@@ -4,8 +4,10 @@ import MapView, { Marker } from 'react-native-maps';
 
 import RestaurantData from '~/services/RestaurantData';
 import MapMarker from '~/assets/icons/map-marker.svg';
+import BackArrow from '~/assets/icons/back-arrow.svg';
 import { Colors, Spacing } from '~/styles';
 import RestaurantSelected from './components/RestaurantSelected';
+import ICON_DIMENSIONS from '~/utils/constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,6 +16,11 @@ const styles = StyleSheet.create({
   },
   mapStyle: {
     ...StyleSheet.absoluteFillObject,
+  },
+  backButton: {
+    position: 'absolute',
+    left: Spacing.small,
+    top: Spacing.medium,
   },
 });
 
@@ -73,6 +80,8 @@ class Map extends React.Component {
 
   render() {
     const { activeMarker, markers } = this.state;
+    const { navigation } = this.props;
+    const { width, height } = ICON_DIMENSIONS;
     return (
       <View style={styles.container}>
         <MapView initialRegion={region} style={styles.mapStyle}>
@@ -83,7 +92,7 @@ class Map extends React.Component {
               onPress={() => this.onMapPress(marker)}
             >
               {/* <TouchableOpacity onPress={() => this.onMapPress(marker)}> */}
-              <MapMarker width={32} height={32} fill={marker.color} />
+              <MapMarker width={width} height={height} fill={marker.color} />
               {/* </TouchableOpacity> */}
             </Marker>
           ))}
@@ -91,6 +100,11 @@ class Map extends React.Component {
         {activeMarker.placeId ? (
           <RestaurantSelected restaurant={activeMarker} />
         ) : null}
+        <View style={styles.backButton}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <BackArrow width={width} height={height} fill={Colors.black} />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
