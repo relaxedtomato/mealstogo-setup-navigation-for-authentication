@@ -12,7 +12,7 @@ import HomeIcon from '~/assets/icons/home.svg';
 import SearchIcon from '~/assets/icons/search.svg';
 import ProfileIcon from '~/assets/icons/profile.svg';
 import { Colors } from '~/styles';
-import ICON_DIMENSIONS from '~/utils/constants';
+import { ICON_DIMENSIONS } from '~/utils/constants';
 
 const Tab = createBottomTabNavigator();
 const RootStack = createStackNavigator();
@@ -78,7 +78,7 @@ export default class App extends React.Component {
     const { fontLoaded } = this.state;
     return fontLoaded ? (
       <NavigationContainer>
-        <RootStack.Navigator headerMode="none">
+        <RootStack.Navigator initialRouteName="App" headerMode="none">
           <RootStack.Screen name="App" component={AppStack} />
           <RootStack.Screen name="MapModal" component={Map} />
         </RootStack.Navigator>

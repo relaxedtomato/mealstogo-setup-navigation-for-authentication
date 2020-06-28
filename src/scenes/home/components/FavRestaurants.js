@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import Swiper from 'react-native-swiper';
 import PropTypes from 'prop-types';
 
-import restaurantPropTypes from '~/types';
+import { restaurantPropTypes } from '~/types';
 import { Colors, Spacing, Typography } from '~/styles';
 
 const styles = StyleSheet.create({

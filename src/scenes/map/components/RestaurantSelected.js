@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
 import { Colors, Spacing, Typography } from '~/styles';
-import restaurantPropTypes from '~/types';
+import { restaurantPropTypes } from '~/types';
 
 const styles = StyleSheet.create({
   container: {

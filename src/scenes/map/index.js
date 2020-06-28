@@ -7,7 +7,8 @@ import MapMarker from '~/assets/icons/map-marker.svg';
 import BackArrow from '~/assets/icons/back-arrow.svg';
 import { Colors, Spacing } from '~/styles';
 import RestaurantSelected from './components/RestaurantSelected';
-import ICON_DIMENSIONS from '~/utils/constants';
+import { ICON_DIMENSIONS } from '~/utils/constants';
+import { navigationPropTypes } from '~/types';
 
 const styles = StyleSheet.create({
   container: {
@@ -81,7 +82,7 @@ class Map extends React.Component {
   render() {
     const { activeMarker, markers } = this.state;
     const { navigation } = this.props;
-    const { width, height } = ICON_DIMENSIONS;
+    const { width: iconWidth, height: iconHeight } = ICON_DIMENSIONS;
     return (
       <View style={styles.container}>
         <MapView initialRegion={region} style={styles.mapStyle}>
@@ -91,9 +92,11 @@ class Map extends React.Component {
               key={marker.placeId}
               onPress={() => this.onMapPress(marker)}
             >
-              {/* <TouchableOpacity onPress={() => this.onMapPress(marker)}> */}
-              <MapMarker width={width} height={height} fill={marker.color} />
-              {/* </TouchableOpacity> */}
+              <MapMarker
+                width={iconWidth}
+                height={iconHeight}
+                fill={marker.color}
+              />
             </Marker>
           ))}
         </MapView>
@@ -101,13 +104,21 @@ class Map extends React.Component {
           <RestaurantSelected restaurant={activeMarker} />
         ) : null}
         <View style={styles.backButton}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <BackArrow width={width} height={height} fill={Colors.black} />
+          <TouchableOpacity onPress={navigation.goBack}>
+            <BackArrow
+              width={iconWidth}
+              height={iconHeight}
+              fill={Colors.black}
+            />
           </TouchableOpacity>
         </View>
       </View>
     );
   }
 }
+
+Map.propTypes = {
+  navigation: navigationPropTypes.isRequired,
+};
 
 export default Map;

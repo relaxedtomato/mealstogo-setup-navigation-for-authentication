@@ -1,8 +1,9 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
 import Map from '~/assets/icons/map';
 import { Colors, Spacing, Typography } from '~/styles';
-import ICON_DIMENSIONS from '~/utils/constants';
+import { ICON_DIMENSIONS } from '~/utils/constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,8 +13,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingRight: Spacing.medium,
     paddingLeft: Spacing.medium,
-    borderBottomWidth: 2,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: Colors.lightGray,
+    backgroundColor: Colors.white,
   },
   location: Typography.bodyText,
 });
@@ -26,5 +28,9 @@ const TopBar = ({ openMap }) => (
     </TouchableOpacity>
   </View>
 );
+
+TopBar.propTypes = {
+  openMap: PropTypes.func.isRequired,
+};
 
 export default TopBar;

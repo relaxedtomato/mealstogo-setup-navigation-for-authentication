@@ -3,15 +3,15 @@ import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
 import TopBar from '~/components/TopBar';
 import RestaurantList from './components/RestaurantList';
 import { Colors } from '~/styles';
-
-const HEIGHT = 55;
+import { TAB_BAR_HEIGHT } from '~/utils/constants';
+import { navigationPropTypes } from '~/types';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   topbar: {
-    height: HEIGHT,
+    height: TAB_BAR_HEIGHT,
     // Note: only works on Android
     marginTop: StatusBar.currentHeight,
   },
@@ -33,3 +33,7 @@ export default function Home({ navigation }) {
     </SafeAreaView>
   );
 }
+
+Home.propTypes = {
+  navigation: navigationPropTypes.isRequired,
+};

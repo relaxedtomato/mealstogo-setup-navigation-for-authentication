@@ -1,6 +1,6 @@
-const ICON_DIMENSIONS = {
+export const ICON_DIMENSIONS = {
   width: 32,
   height: 32,
 };
 
-export default ICON_DIMENSIONS;
+export const TAB_BAR_HEIGHT = 55;
