@@ -1,15 +1,10 @@
 import React from 'react';
-import {
-  Image,
-  Text,
-  StyleSheet,
-  StatusBar,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import PropTypes from 'prop-types';
+import { Image, Text, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { Colors, Typography, Spacing } from '~/styles';
+import BackArrow from '~/assets/icons/back-arrow.svg';
+import { ICON_DIMENSIONS } from '~/utils/constants';
+import { navigationPropTypes } from '~/types';
 
 const styles = StyleSheet.create({
   image: {
@@ -44,6 +39,11 @@ const styles = StyleSheet.create({
     fontSize: Typography.largeFontSize,
     textDecorationLine: 'underline',
   },
+  backButton: {
+    position: 'absolute',
+    left: Spacing.small,
+    top: Spacing.medium,
+  },
 });
 
 const RestaurantDetails = ({ navigation }) => (
@@ -57,7 +57,20 @@ const RestaurantDetails = ({ navigation }) => (
       <Text style={styles.cuisine}>Mexican</Text>
       <Text style={styles.vicinity}>Silicon Valley</Text>
     </View>
+    <View style={styles.backButton}>
+      <TouchableOpacity onPress={navigation.goBack}>
+        <BackArrow
+          width={ICON_DIMENSIONS.width}
+          height={ICON_DIMENSIONS.height}
+          fill={Colors.white}
+        />
+      </TouchableOpacity>
+    </View>
   </View>
 );
+
+RestaurantDetails.propTypes = {
+  navigation: navigationPropTypes.isRequired,
+};
 
 export default RestaurantDetails;
