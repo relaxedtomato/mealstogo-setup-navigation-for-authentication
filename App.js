@@ -8,6 +8,7 @@ import Home from '~/scenes/home';
 import Search from '~/scenes/search';
 import Profile from '~/scenes/profile';
 import Map from '~/scenes/map';
+import Restaurant from '~/scenes/restaurant';
 import HomeIcon from '~/assets/icons/home.svg';
 import SearchIcon from '~/assets/icons/search.svg';
 import ProfileIcon from '~/assets/icons/profile.svg';
@@ -78,9 +79,13 @@ export default class App extends React.Component {
     const { fontLoaded } = this.state;
     return fontLoaded ? (
       <NavigationContainer>
-        <RootStack.Navigator initialRouteName="App" headerMode="none">
+        <RootStack.Navigator
+          initialRouteName="RestaurantModal"
+          headerMode="none"
+        >
           <RootStack.Screen name="App" component={AppStack} />
           <RootStack.Screen name="MapModal" component={Map} />
+          <RootStack.Screen name="RestaurantModal" component={Restaurant} />
         </RootStack.Navigator>
       </NavigationContainer>
     ) : null;
