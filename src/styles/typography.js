@@ -1,5 +1,6 @@
 const baseFontSize = 12;
 const largeFontSize = 16;
+const xlargeFontSize = 24;
 
 const bodyText = {
   fontSize: baseFontSize,
@@ -11,4 +12,4 @@ const sectionHeader = {
   fontFamily: 'sanchez-regular',
 };
 
-export { baseFontSize, largeFontSize, bodyText, sectionHeader };
+export { baseFontSize, largeFontSize, bodyText, sectionHeader, xlargeFontSize };

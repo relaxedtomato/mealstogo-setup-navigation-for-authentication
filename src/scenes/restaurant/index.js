@@ -1,9 +1,11 @@
 import React from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import { SafeAreaView } from 'react-native';
 
-const Restaurant = () => (
+import RestaurantDetails from './components/RestaurantDetails';
+
+const Restaurant = ({ navigation }) => (
   <SafeAreaView>
-    <Text>Restaurant</Text>
+    <RestaurantDetails navigation={navigation} />
   </SafeAreaView>
 );
 
