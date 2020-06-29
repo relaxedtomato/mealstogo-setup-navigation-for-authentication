@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import { Colors, Typography, Spacing } from '~/styles';
 import { TOP_BAR_HEIGHT } from '~/utils/constants';
-import CancelIcon from '~/assets/icons/cancel';
+import SearchInput from './components/SearchInput';
+import SearchResults from './components/SearchResults';
+import RestaurantData from '~/services/RestaurantData';
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     marginTop: StatusBar.currentHeight,
     backgroundColor: Colors.white,
   },
@@ -27,27 +24,23 @@ const styles = StyleSheet.create({
   cancelButton: {
     position: 'absolute',
     right: Spacing.medium,
-    top: Spacing.large,
+    top: Spacing.small,
   },
 });
 
 const Search = () => {
   const [searchText, onChangeText] = useState('Type a cuisine or place name');
+  const [restaurants, onUpdateSearchResults] = useState(RestaurantData.results);
 
   return (
     <SafeAreaView style={styles.container}>
-      <TextInput
-        onFocus={() => onChangeText('')}
+      <SearchInput
         onChangeText={onChangeText}
-        value={searchText}
-        style={styles.textInput}
+        searchText={searchText}
+        onUpdateSearchResults={onUpdateSearchResults}
+        restaurantData={RestaurantData.results}
       />
-      <TouchableOpacity
-        style={styles.cancelButton}
-        onPress={() => onChangeText('')}
-      >
-        <CancelIcon width={25} height={25} fill={Colors.mediumGray} />
-      </TouchableOpacity>
+      <SearchResults restaurants={restaurants} />
     </SafeAreaView>
   );
 };
