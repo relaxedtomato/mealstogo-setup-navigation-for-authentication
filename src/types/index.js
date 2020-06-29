@@ -8,6 +8,7 @@ export const restaurantPropTypes = PropTypes.shape({
 });
 
 export const navigationPropTypes = PropTypes.shape({
+  addListener: PropTypes.func,
   navigate: PropTypes.func,
   goBack: PropTypes.func,
 });
