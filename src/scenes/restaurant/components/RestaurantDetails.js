@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { Image, Text, StyleSheet, TouchableOpacity, View } from 'react-native';
+import {
+  Image,
+  Platform,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import { Colors, Typography, Spacing } from '~/styles';
 import BackArrow from '~/assets/icons/back-arrow.svg';
@@ -44,7 +51,11 @@ const styles = StyleSheet.create({
   backButton: {
     position: 'absolute',
     left: Spacing.small,
-    top: Spacing.medium,
+    ...Platform.select({
+      android: {
+        top: Spacing.medium,
+      },
+    }),
   },
   fav: {
     position: 'relative',

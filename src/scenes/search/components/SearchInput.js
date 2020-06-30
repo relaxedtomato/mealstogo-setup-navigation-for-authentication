@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  StatusBar,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-  View,
-} from 'react-native';
+import { StyleSheet, TouchableOpacity, TextInput, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Colors, Typography, Spacing } from '~/styles';
@@ -26,7 +20,7 @@ const styles = StyleSheet.create({
   cancelButton: {
     position: 'absolute',
     right: Spacing.medium,
-    top: Spacing.medium,
+    top: 12,
   },
 });
 

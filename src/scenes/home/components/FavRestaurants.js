@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Swiper from 'react-native-swiper';
 import PropTypes from 'prop-types';
 
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const FavRestaurants = ({ item: restaurants }) => {
+const FavRestaurants = ({ item: restaurants, openRestaurant }) => {
   let gridSection = [];
 
   const favDataGrid = restaurants.reduce(
@@ -71,15 +71,25 @@ const FavRestaurants = ({ item: restaurants }) => {
 
         return (
           <View style={styles.slide} key={firstRestaurant.place_id}>
-            <View style={styles.container} key={firstRestaurant.place_id}>
+            <TouchableOpacity
+              style={styles.container}
+              key={firstRestaurant.place_id}
+              onPress={openRestaurant}
+              activeOpacity={0.8}
+            >
               <Image source={firstRestaurant.image} style={styles.image} />
               <Text style={styles.name}>{firstRestaurant.name}</Text>
-            </View>
+            </TouchableOpacity>
             {secondRestaurant && (
-              <View style={styles.container} key={secondRestaurant.place_id}>
+              <TouchableOpacity
+                style={styles.container}
+                key={secondRestaurant.place_id}
+                onPress={openRestaurant}
+                activeOpacity={0.8}
+              >
                 <Image source={secondRestaurant.image} style={styles.image} />
                 <Text style={styles.name}>{secondRestaurant.name}</Text>
-              </View>
+              </TouchableOpacity>
             )}
           </View>
         );
@@ -90,6 +100,7 @@ const FavRestaurants = ({ item: restaurants }) => {
 
 FavRestaurants.propTypes = {
   item: PropTypes.arrayOf(restaurantPropTypes).isRequired,
+  openRestaurant: PropTypes.func.isRequired,
 };
 
 export default FavRestaurants;

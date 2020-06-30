@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import PropTypes from 'prop-types';
 
 import { restaurantPropTypes } from '~/types';
 import { Colors, Spacing, Typography } from '~/styles';
@@ -33,17 +34,22 @@ const styles = StyleSheet.create({
   },
 });
 
-const CloseByRestaurant = ({ item: restaurant }) => (
-  <View style={styles.container}>
+const CloseByRestaurant = ({ openRestaurant, item: restaurant }) => (
+  <TouchableOpacity
+    style={styles.container}
+    activeOpacity={0.8}
+    onPress={openRestaurant}
+  >
     <Image style={styles.image} source={restaurant.image} />
     <Text style={styles.name}>{restaurant.name}</Text>
     <Text style={styles.cuisine}>{restaurant.cuisine}</Text>
     <Text style={styles.vicinity}>{restaurant.vicinity}</Text>
-  </View>
+  </TouchableOpacity>
 );
 
 CloseByRestaurant.propTypes = {
   item: restaurantPropTypes.isRequired,
+  openRestaurant: PropTypes.func.isRequired,
 };
 
 export default CloseByRestaurant;

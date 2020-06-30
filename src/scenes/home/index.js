@@ -28,7 +28,9 @@ export default function Home({ navigation }) {
         <TopBar openMap={() => navigation.navigate('MapModal')} />
       </View>
       <View style={styles.content}>
-        <RestaurantList />
+        <RestaurantList
+          openRestaurant={() => navigation.navigate('RestaurantModal')}
+        />
       </View>
     </SafeAreaView>
   );
