@@ -68,8 +68,9 @@ const styles = StyleSheet.create({
 });
 
 const RestaurantDetails = ({ navigation }) => {
-  const [isFav, onFav] = useState(false);
   const { width: iconWidth, height: iconHeight } = ICON_DIMENSIONS;
+  // TODO: temporary, connect to database later
+  const [isFav, onFav] = useState(false);
 
   return (
     <View>
