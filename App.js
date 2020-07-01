@@ -9,6 +9,9 @@ import Search from '~/scenes/search';
 import Profile from '~/scenes/profile';
 import Map from '~/scenes/map';
 import Restaurant from '~/scenes/restaurant';
+import Welcome from '~/scenes/auth/welcome';
+import Login from '~/scenes/auth/login';
+import SignUp from '~/scenes/auth/signup';
 import HomeIcon from '~/assets/icons/home.svg';
 import SearchIcon from '~/assets/icons/search.svg';
 import ProfileIcon from '~/assets/icons/profile.svg';
@@ -58,6 +61,8 @@ export default class App extends React.Component {
     super();
     this.state = {
       fontLoaded: false,
+      // TODO: temporary state variable for testing
+      user: false,
     };
   }
 
@@ -70,17 +75,26 @@ export default class App extends React.Component {
       'lora-regular': require('./assets/fonts/Lora-Regular.ttf'),
       'sanchez-italic': require('./assets/fonts/Sanchez-Italic.ttf'),
       'sanchez-regular': require('./assets/fonts/Sanchez-Regular.ttf'),
+      'oswald-regular': require('./assets/fonts/Oswald-Regular.ttf'),
       /* eslint-enable */
     });
     this.setState({ fontLoaded: true });
   }
 
   render() {
-    const { fontLoaded } = this.state;
+    const { fontLoaded, user } = this.state;
     return fontLoaded ? (
       <NavigationContainer>
         <RootStack.Navigator initialRouteName="App" headerMode="none">
-          <RootStack.Screen name="App" component={AppStack} />
+          {user ? (
+            <RootStack.Screen name="App" component={AppStack} />
+          ) : (
+            <>
+              <RootStack.Screen name="Welcome" component={Welcome} />
+              <RootStack.Screen name="Login" component={Login} />
+              <RootStack.Screen name="SignUp" component={SignUp} />
+            </>
+          )}
           <RootStack.Screen name="MapModal" component={Map} />
           <RootStack.Screen name="RestaurantModal" component={Restaurant} />
         </RootStack.Navigator>
