@@ -7,13 +7,14 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import { Colors, Typography, Spacing } from '~/styles';
 import BackArrow from '~/assets/icons/back-arrow.svg';
 import Fav from '~/assets/icons/heart.svg';
 import FavSelected from '~/assets/icons/heart-solid.svg';
 import { ICON_DIMENSIONS } from '~/utils/constants';
-import { navigationPropTypes } from '~/types';
+import { navigationPropTypes, restaurantPropTypes } from '~/types';
 
 const styles = StyleSheet.create({
   image: {
@@ -78,17 +79,15 @@ const styles = StyleSheet.create({
   },
 });
 
-const RestaurantDetails = ({ navigation }) => {
+const RestaurantDetails = ({ route, navigation }) => {
   const { width: iconWidth, height: iconHeight } = ICON_DIMENSIONS;
   // TODO: temporary, connect to database later
   const [isFav, onFav] = useState(false);
+  const { image, name, cuisine, vicinity } = route.params.details;
 
   return (
     <View>
-      <Image
-        style={styles.image}
-        source={require('~/assets/cuisine/mexican/mexican.jpg')}
-      />
+      <Image style={styles.image} source={image} />
       <TouchableOpacity
         style={styles.favBackground}
         hitSlop={{ top: 50, left: 50, bottom: 50, right: 50 }}
@@ -112,9 +111,9 @@ const RestaurantDetails = ({ navigation }) => {
         )}
       </TouchableOpacity>
       <View style={styles.restaurantDetails}>
-        <Text style={styles.name}>El Takito</Text>
-        <Text style={styles.cuisine}>Mexican</Text>
-        <Text style={styles.vicinity}>Silicon Valley</Text>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.cuisine}>{cuisine}</Text>
+        <Text style={styles.vicinity}>{vicinity}</Text>
       </View>
       <View style={styles.backButton}>
         <TouchableOpacity onPress={navigation.goBack}>
@@ -131,6 +130,11 @@ const RestaurantDetails = ({ navigation }) => {
 
 RestaurantDetails.propTypes = {
   navigation: navigationPropTypes.isRequired,
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      details: restaurantPropTypes.isRequired,
+    }),
+  }).isRequired,
 };
 
 export default RestaurantDetails;

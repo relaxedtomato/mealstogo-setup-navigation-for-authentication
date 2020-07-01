@@ -74,7 +74,14 @@ const FavRestaurants = ({ item: restaurants, openRestaurant }) => {
             <TouchableOpacity
               style={styles.container}
               key={firstRestaurant.place_id}
-              onPress={openRestaurant}
+              onPress={() =>
+                openRestaurant({
+                  image: firstRestaurant.image,
+                  name: firstRestaurant.name,
+                  cuisine: firstRestaurant.cuisine,
+                  vicinity: firstRestaurant.vicinity,
+                })
+              }
               activeOpacity={0.8}
             >
               <Image source={firstRestaurant.image} style={styles.image} />
@@ -84,7 +91,14 @@ const FavRestaurants = ({ item: restaurants, openRestaurant }) => {
               <TouchableOpacity
                 style={styles.container}
                 key={secondRestaurant.place_id}
-                onPress={openRestaurant}
+                onPress={() =>
+                  openRestaurant({
+                    image: secondRestaurant.image,
+                    name: secondRestaurant.name,
+                    cuisine: secondRestaurant.cuisine,
+                    vicinity: secondRestaurant.vicinity,
+                  })
+                }
                 activeOpacity={0.8}
               >
                 <Image source={secondRestaurant.image} style={styles.image} />

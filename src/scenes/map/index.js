@@ -103,7 +103,9 @@ class Map extends React.Component {
         {activeMarker.placeId ? (
           <RestaurantSelected
             restaurant={activeMarker}
-            openRestaurant={() => navigation.navigate('RestaurantModal')}
+            openRestaurant={details =>
+              navigation.navigate('RestaurantModal', { details })
+            }
           />
         ) : null}
         <View style={styles.backButton}>

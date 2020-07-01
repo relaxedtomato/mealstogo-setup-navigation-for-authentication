@@ -35,7 +35,17 @@ const SearchResults = ({ restaurants, openRestaurant }) => (
   <FlatList
     data={restaurants}
     renderItem={({ item: restaurant }) => (
-      <Restaurant name={restaurant.name} openRestaurant={openRestaurant} />
+      <Restaurant
+        name={restaurant.name}
+        openRestaurant={() =>
+          openRestaurant({
+            image: restaurant.image,
+            name: restaurant.name,
+            cuisine: restaurant.cuisine,
+            vicinity: restaurant.vicinity,
+          })
+        }
+      />
     )}
     keyExtractor={item => item.place_id}
   />

@@ -39,7 +39,9 @@ const Search = ({ navigation }) => {
       />
       <SearchResults
         restaurants={restaurants}
-        openRestaurant={() => navigation.navigate('RestaurantModal')}
+        openRestaurant={details =>
+          navigation.navigate('RestaurantModal', { details })
+        }
       />
     </SafeAreaView>
   );

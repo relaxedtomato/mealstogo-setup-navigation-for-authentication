@@ -38,7 +38,14 @@ const CloseByRestaurant = ({ openRestaurant, item: restaurant }) => (
   <TouchableOpacity
     style={styles.container}
     activeOpacity={0.8}
-    onPress={openRestaurant}
+    onPress={() =>
+      openRestaurant({
+        image: restaurant.image,
+        name: restaurant.name,
+        cuisine: restaurant.cuisine,
+        vicinity: restaurant.vicinity,
+      })
+    }
   >
     <Image style={styles.image} source={restaurant.image} />
     <Text style={styles.name}>{restaurant.name}</Text>

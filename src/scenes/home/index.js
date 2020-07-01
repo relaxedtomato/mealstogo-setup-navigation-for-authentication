@@ -29,7 +29,9 @@ export default function Home({ navigation }) {
       </View>
       <View style={styles.content}>
         <RestaurantList
-          openRestaurant={() => navigation.navigate('RestaurantModal')}
+          openRestaurant={details =>
+            navigation.navigate('RestaurantModal', { details })
+          }
         />
       </View>
     </SafeAreaView>

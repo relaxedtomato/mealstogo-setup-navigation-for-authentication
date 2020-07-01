@@ -47,7 +47,14 @@ const styles = StyleSheet.create({
 const RestaurantSelected = ({ restaurant, openRestaurant }) => (
   <TouchableOpacity
     style={styles.container}
-    onPress={openRestaurant}
+    onPress={() =>
+      openRestaurant({
+        image: restaurant.image,
+        name: restaurant.name,
+        cuisine: restaurant.cuisine,
+        vicinity: restaurant.vicinity,
+      })
+    }
     activeOpacity={0.8}
   >
     <Image style={styles.image} source={restaurant.image} />
